@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Summary Chatbot</h1>
+      <h1>TLDR Chatbot</h1>
       <div className="chat-container">
         {chatHistory.map((chat, index) => (
           <div key={index}>
@@ -59,12 +59,14 @@ function App() {
         ))}
       </div>
       <form onSubmit={handleSubmit}>
-        <textarea
-          type="text"
-          value={userInput}
-          onChange={handleUserInput}
-          placeholder="Type your passage..."
-        />
+        <div class="chat-input">
+          <textarea
+            type="text"
+            value={userInput}
+            onChange={handleUserInput}
+            placeholder="Type your passage..."
+          />
+        </div>
         <button type="submit">Send</button>
       </form>
     </div>
