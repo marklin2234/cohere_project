@@ -27,8 +27,9 @@ def handle_get_request():
     summary = co.summarize(
         text=readable_text
     )
+    print(summary.summary)
 
-    payload = jsonify({'summary': summary})
+    payload = jsonify({'summary': summary.summary})
     payload.headers.add('Access-Control-Allow-Origin', '*')
     return payload
 
