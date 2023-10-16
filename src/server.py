@@ -2,10 +2,12 @@ from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
 import cohere
+import re
 
 app = Flask(__name__)
 
-API_KEY = '0R0GpKWYjaWulTrHEf48MCAkB59AYjZLdHczD21g'
+API_KEY = '9U6f835fOCOLuwP0usp96xpPzFKHE4yDljeJYA4I'
+COHERE_INPUT_SIZE_LIMITATION = 100000
 co = cohere.Client(API_KEY)
 
 @app.route('/', methods=['GET'])
@@ -16,6 +18,7 @@ def handle_landing_page():
 def handle_get_request():
     # Retrieve query parameters
     link = request.args.get('link')
+    link = link.strip() # this removes any dangling newlines
     headers = {
         'User-Agent': 'Mozilla/5.0'
     }
@@ -24,12 +27,20 @@ def handle_get_request():
     soup = BeautifulSoup(response.text,'lxml')
     readable_text = soup.body.get_text(' ', strip=True)
 
-    summary = co.summarize(
-        text=readable_text
-    )
-    print(summary.summary)
+    summary = ""
+    if (len(readable_text) > COHERE_INPUT_SIZE_LIMITATION):
+        to_add = co.summarize(
+            text=readable_text[:COHERE_INPUT_SIZE_LIMITATION]
+        )
+        summary += to_add.summary
+    else:
+        to_add = co.summarize(
+            text=readable_text
+        )
+        summary += to_add.summary
+    print(summary)
 
-    payload = jsonify({'summary': summary.summary})
+    payload = jsonify({'summary': summary})
     payload.headers.add('Access-Control-Allow-Origin', '*')
     return payload
 
