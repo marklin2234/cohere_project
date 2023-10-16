@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #f6f6f2;
+}
+
 /* Chat window styles */
 .chat-window {
   background-color: #f7f9fd; /* Light blue background */
