@@ -2,11 +2,10 @@ from flask import Flask, request, jsonify
 import requests
 from bs4 import BeautifulSoup
 import cohere
-import re
 
 app = Flask(__name__)
 
-API_KEY = '9U6f835fOCOLuwP0usp96xpPzFKHE4yDljeJYA4I'
+API_KEY = '0R0GpKWYjaWulTrHEf48MCAkB59AYjZLdHczD21g'
 COHERE_INPUT_SIZE_LIMITATION = 100000
 co = cohere.Client(API_KEY)
 
