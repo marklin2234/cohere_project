@@ -5,8 +5,6 @@ import chatAvatar from './img/bot.png'
 
 const FLASK_SERVER_URL = 'http://localhost:5000'
 
-const FLASK_SERVER_URL = 'http://localhost:5000'
-
 const COHERE_API_ENDPOINT = 'https://api.cohere.ai/v1/summarize';
 const API_KEY = '0R0GpKWYjaWulTrHEf48MCAkB59AYjZLdHczD21g';
 
