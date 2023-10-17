@@ -1,23 +1,38 @@
-## SupplyEye - Inventory Management System
+## AutoTLDR - your TLDR Chatbot buddy.
 
-App is hosted on Replit: https://inventory-app-shopify--mding8166.repl.co/
 
- ![Logo](/src/img/bot.png).
+<p align="center">
+  <img src="https://github.com/marklin2234/cohere_project/blob/main/src/img/bot.png?raw=true" alt="Logo"/>
+</p>
+
+## Info
+
+* App is live! Check it out here: https://cohere-project.vercel.app/
+* Backend repo can be found here: https://github.com/marklin2234/cohere_project_backend
+* Authors: [@michael1ding](https://www.github.com/michael1ding) and [@marklin2234](https://www.github.com/marklin2234)
 
 ## Background
 
-I leveraged my background in Django from a previous internship (and also had a refresher for frontend HTML) to build this project. To goal is to distribute this application en masse to help local store owners keep track of their item inventory by implementing multiple backend operations for their store items and using a common datastore like SQLite to keep track of items.
+We leveraged our respective backgrounds writing Python apps and Javascript clients from previous projects and internships to build this Chatbot. The goal of this project was to make LLM technology more accessible to everyday technology users through a friendly user interface.
 
 ### Functionality
 
 I've implemented the following features, you should be able to:
-* Create inventory items
-* Edit Them
-* Delete Them
-* View a list of them
-* When deleting, allow deletion comments and undeletion
+* Interact with the chat bot using text
+* Toggle link pasting mode, where the link will be scraped and summarized
+
+### Current Work
+
+At the current moment, we are working on extending the backend Flask API to listen to an email inbox. This way, users can very easily forward emails or groups of emails to our bot and a daily/instant summary will be delivered straight to your index by our friendly bot.
 
 ### Technology Choices
+
+Because of the scale of this application, we decided that we can handle the entire logic flow in memory on the virtual machine hosts. We still process web requests asynchronously with Javascript async/await syntax. This decision was made on the basis that our Cohere API is rate limited.
+
+Flask was used as the backend of choice due to problems with CORS (Cross-origin resource sharing) policy when making XMLHTTP requests using Javascript. We have working with web scraping using Python in the past - paired with powerful regex abilities and compatibility with many frameworks this API backend was our ultimate choice. 
+
+
+
 
 Because of the scale of this application, I decided that it would be be best data storage solution would be SQLite, which also integrates nicely with Django through the Django ORM model. Although writing to database in this situation is exclusive locked to multiple threads, this design choice should be sufficient for our needs of single user applications.
 
