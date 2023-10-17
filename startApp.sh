@@ -4,4 +4,4 @@ python3 -m pip install flask
 python3 -m pip install lxml
 python3 -m pip install cohere
 
-npm install & npm start & python3 src/server.py
+npm install & npm start & python3 api/server.py
