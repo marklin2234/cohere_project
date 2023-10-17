@@ -30,10 +30,3 @@ At the current moment, we are working on extending the backend Flask API to list
 Because of the scale of this application, we decided that we can handle the entire logic flow in memory on the virtual machine hosts. We still process web requests asynchronously with Javascript async/await syntax. This decision was made on the basis that our Cohere API is rate limited.
 
 Flask was used as the backend of choice due to problems with CORS (Cross-origin resource sharing) policy when making XMLHTTP requests using Javascript. We have working with web scraping using Python in the past - paired with powerful regex abilities and compatibility with many frameworks this API backend was our ultimate choice. 
-
-
-
-
-Because of the scale of this application, I decided that it would be be best data storage solution would be SQLite, which also integrates nicely with Django through the Django ORM model. Although writing to database in this situation is exclusive locked to multiple threads, this design choice should be sufficient for our needs of single user applications.
-
-Django was used as the backend of choice due to the development and somewhat structured nature offered by the web framework. Database migrations are easy and allow for significant leeway in implementing now and applying modifications in the future.
