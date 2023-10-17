@@ -128,47 +128,49 @@ function App() {
   };
 
   return (
-    <div className="mini-browser">
-      <div className="chat-header">
-        <h1>TLDR Chatbot</h1>
-      </div>
-      <div className="chat-container" ref={chatContainerRef}>
-        {chatHistory.map((chat, index) => (
-          <div key={index}>
-            {chat.isBot ? (
-              <div className="chatbot-message">
-                <img src={chatAvatar} alt="Chatbot Avatar" className="avatar-bot" />
-                <p className="message-content-bot">{chat.message}</p>
-              </div>
-            ) : (
-              <div className="user-message">
-                <img src={userAvatar} alt="User Avatar" className="avatar-user" />
-                <p className="message-content">{chat.message}</p>
-              </div>
-            )}
-          </div>
-        ))}
-        {isProcessing && (
-          <div className="chatbot-message">
-            <img src={chatAvatar} alt="Chatbot Avatar" className="avatar-bot" />
-            <p className="message-content-bot">Working on it!</p>
-          </div>
-        )}
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div class="chat-input">
-          <textarea
-            type="text"
-            value={userInput}
-            onChange={handleUserInput}
-            placeholder={appState === AppStates.LinkMode ? "Paste your link here..." : "Type your passage..."}
-            id="input-text-field"
-            className={appState === AppStates.LinkMode ? 'link-mode' : ''}
-          />
+    <div className='background'>
+      <div className="mini-browser">
+        <div className="chat-header">
+          <h1>TLDR Chatbot</h1>
         </div>
-        <button type="submit">Send</button>
-        <button id="toggle-links" onClick={handleLinkToggle}>Toggle Pasted Links</button>
-      </form>
+        <div className="chat-container" ref={chatContainerRef}>
+          {chatHistory.map((chat, index) => (
+            <div key={index}>
+              {chat.isBot ? (
+                <div className="chatbot-message">
+                  <img src={chatAvatar} alt="Chatbot Avatar" className="avatar-bot" />
+                  <p className="message-content-bot">{chat.message}</p>
+                </div>
+              ) : (
+                <div className="user-message">
+                  <img src={userAvatar} alt="User Avatar" className="avatar-user" />
+                  <p className="message-content">{chat.message}</p>
+                </div>
+              )}
+            </div>
+          ))}
+          {isProcessing && (
+            <div className="chatbot-message">
+              <img src={chatAvatar} alt="Chatbot Avatar" className="avatar-bot" />
+              <p className="message-content-bot">Working on it!</p>
+            </div>
+          )}
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div class="chat-input">
+            <textarea
+              type="text"
+              value={userInput}
+              onChange={handleUserInput}
+              placeholder={appState === AppStates.LinkMode ? "Paste your link here..." : "Type your passage..."}
+              id="input-text-field"
+              className={appState === AppStates.LinkMode ? 'link-mode' : ''}
+            />
+          </div>
+          <button type="submit">Send</button>
+          <button id="toggle-links" onClick={handleLinkToggle}>Toggle Pasted Links</button>
+        </form>
+      </div>
     </div>
   );
 }

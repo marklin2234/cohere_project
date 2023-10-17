@@ -184,6 +184,7 @@ button:focus {
   top: 50%; /* Position from the top */
   left: 50%; /* Position from the left */
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  background-color: rgb(250,250,250);
 }
 
 .browser-header {
