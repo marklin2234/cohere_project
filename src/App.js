@@ -5,7 +5,7 @@ import chatAvatar from './img/bot.png'
 
 const isProd = window.location.hostname === 'localhost';
 
-const FLASK_SERVER_URL = isProd ? 'http://localhost:5000' : window.location.href + '/api';
+const FLASK_SERVER_URL = isProd ? 'http://localhost:5000' : 'https://cohereprojectbackend-production.up.railway.app/';
 
 const COHERE_API_ENDPOINT = 'https://api.cohere.ai/v1/summarize';
 const API_KEY = '0R0GpKWYjaWulTrHEf48MCAkB59AYjZLdHczD21g';
