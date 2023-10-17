@@ -3,7 +3,9 @@ import './App.css';
 import userAvatar from './img/anon.png'
 import chatAvatar from './img/bot.png'
 
-const FLASK_SERVER_URL = 'http://localhost:5000'
+const isProd = window.location.hostname === 'localhost';
+
+const FLASK_SERVER_URL = isProd ? 'http://localhost:5000' : window.location.href + '/api';
 
 const COHERE_API_ENDPOINT = 'https://api.cohere.ai/v1/summarize';
 const API_KEY = '0R0GpKWYjaWulTrHEf48MCAkB59AYjZLdHczD21g';
@@ -83,6 +85,7 @@ function App() {
     var summary = "";
     try {
       const response = await fetch(`${endpoint}?${queryString}`);
+      console.log(response);
       const data = await response.json();
       summary = data.summary;
       console.log(summary);
