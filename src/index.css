@@ -1,27 +1,281 @@
-body {
+/* App.css */
+
+/* Reset some default styles */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #f6f6f2;
+}
+
+/* Chat window styles */
+.chat-window {
+  background-color: #f7f9fd; /* Light blue background */
+  display: flex;
+  flex-direction: column;
+  height: 80vh; /* Reduce the height to fit within the screen */
+  width: 80%; /* Set a percentage width */
+  margin: 10%; /* Add 10% margin on all sides */
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Add rounded corners */
+  overflow: hidden;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  background-color: #4267B2; /* Facebook blue for the chat header */
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.chat-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.avatar-user {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px; /* Move the user's avatar to the right */
+  margin-left: 10px;
+  order: 1; /* Reorder the avatar to come after the message content */
+}
+
+.avatar-bot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px; /* Move the user's avatar to the right */
+  margin-left: 10px;
+}
+
+.message-content {
+  background-color: #f0f2f5; /* Light gray for message content */
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-content-bot {
+  background-color: #e4ecf8; /* Light gray for message content */
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.user-message {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 10px; /* Add left margin to align with the mini browser */
+  margin-right: 10px; /* Add right margin to align with the mini browser */
+  border: 1px solid #ccc; /* Add a border to the chat input box */
+  border-radius: 10px;
 }
 
 textarea {
-  min-height: 100px;
-  min-width: 200px;
-  padding: 10px;
-  font-size: 12px;
-  line-height: 1.5;
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: none;
+  resize: none;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
 }
 
-div.container {
-  width:800px; 
-  margin: 0 auto;
-  text-align: center;
+.link-mode textarea {
+  background-color: #f5f5f5;
+}
+
+button {
+  margin-left: 10px;
+  margin-top: 10px; /* Add right margin to align with the mini browser */
+  margin-bottom: 20px; /* Add right margin to align with the mini browser */
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4267B2; /* Facebook blue for buttons */
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #385898; /* Darker shade of Facebook blue on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Additional styles for a modern and pretty look */
+.chat-header h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.message-content {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.message-content-bot {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.chat-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: #385898; /* Darker shade of Facebook blue for scrollbar thumb */
+  border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+/* Mini browser window styles */
+.mini-browser {
+  width: 600px; /* Set the desired width for the mini browser window */
+  height: 600px; /* Set the desired height for the mini browser window */
+  margin: 0 auto; /* Set left and right margins to auto */
+  border-radius: 20px; /* Add rounded corners */
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: fixed; /* Add fixed positioning */
+  top: 50%; /* Position from the top */
+  left: 50%; /* Position from the left */
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+  background-color: rgb(250,250,250);
+}
+
+.browser-header {
+  height: 40px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 20px; /* Add rounded corners to top left */
+  border-top-right-radius: 20px; /* Add rounded corners to top right */
+}
+
+.browser-controls {
+  display: flex;
+  gap: 5px;
+  height: 100%;
+}
+
+.browser-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.browser-control.red {
+  background-color: #ff5f56;
+}
+
+.browser-control.yellow {
+  background-color: #ffbd2e;
+}
+
+.browser-control.green {
+  background-color: #28c940;
+}
+
+.browser-address-bar {
+  height: 30px;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.browser-address-bar input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.browser-content {
+  height: calc(100% - 70px); /* Adjust the height to leave space for the header and address bar */
+  background-color: #fff;
+  padding: 20px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Additional styles for a modern and pretty look */
+.browser-header h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.browser-address-bar input {
+  font-weight: 500;
+}
+
+.browser-content {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.browser-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.browser-content::-webkit-scrollbar-thumb {
+  background-color: #6a1b9a;
+  border-radius: 10px;
+}
+
+.browser-content::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
 }
