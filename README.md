@@ -17,7 +17,7 @@ We leveraged our respective backgrounds writing Python apps and Javascript clien
 
 ### Functionality
 
-I've implemented the following features, you should be able to:
+We've implemented the following features, you should be able to:
 * Interact with the chat bot using text
 * Toggle link pasting mode, where the link will be scraped and summarized
 
